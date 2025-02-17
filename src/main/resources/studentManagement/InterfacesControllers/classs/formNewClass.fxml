@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane styleClass="formStyle" stylesheets="@../head.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentManagement.InterfacesControllers.classs.NewClassController">
+   <children>
+      <Label layoutX="74.0" layoutY="3.3333332538604736" text="Formulaire de d'insertion de classe">
+         <font>
+            <Font name="Berlin Sans FB" size="19.0" />
+         </font>
+      </Label>
+      <Button layoutX="272.0" layoutY="355.3333435058594" mnemonicParsing="false" onAction="#save_class" prefHeight="57.0" prefWidth="161.0" styleClass="record-sales" text="Enrégistrer la classe" />
+      <VBox layoutX="25.33333396911621" layoutY="57.33333206176758" prefHeight="289.0" prefWidth="385.0" spacing="5.0">
+         <children>
+            <HBox prefHeight="47.0" prefWidth="381.0">
+               <children>
+                  <Label prefHeight="59.0" prefWidth="145.0" text="Filières :">
+                     <font>
+                        <Font name="Berlin Sans FB" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="new_class_sector_field" prefHeight="59.0" prefWidth="264.0" promptText="Ex : STI" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="47.0" prefWidth="381.0">
+               <children>
+                  <Label prefHeight="59.0" prefWidth="145.0" text="Année d'étude :">
+                     <font>
+                        <Font name="Berlin Sans FB" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="new_class_study_year_field" prefHeight="59.0" prefWidth="264.0" promptText="Ex : Première année" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="47.0" prefWidth="381.0">
+               <children>
+                  <Label prefHeight="59.0" prefWidth="145.0" text="Ecole :">
+                     <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="new_class_school_field" prefHeight="59.0" prefWidth="264.0" promptText="Ex : INSPEI" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="47.0" prefWidth="381.0">
+               <children>
+                  <Label prefHeight="59.0" prefWidth="145.0" text="Université :">
+                     <font>
+                        <Font name="Berlin Sans FB" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="new_class_university_field" prefHeight="59.0" prefWidth="264.0" promptText="Ex : UNSTIM" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="47.0" prefWidth="381.0">
+               <children>
+                  <Label prefHeight="59.0" prefWidth="145.0" text="Année scolaire :">
+                     <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="new_class_school_year_field" prefHeight="59.0" prefWidth="264.0" promptText="2023-2024" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fitHeight="41.0" fitWidth="50.0" layoutX="13.333333015441895" layoutY="14.0">
+         <image>
+            <Image url="@../bouton-retour.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="8.0" layoutY="12.0" mnemonicParsing="false" onAction="#return_to_table" opacity="0.0" prefHeight="41.0" prefWidth="57.0" />
+   </children>
+</Pane>

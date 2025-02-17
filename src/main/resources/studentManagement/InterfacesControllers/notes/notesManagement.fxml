@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="note_view" minHeight="0.0" minWidth="0.0" prefHeight="655.0" prefWidth="1070.0" stylesheets="@../head.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentManagement.InterfacesControllers.notes.NotesManagementController">
+   <children>
+      <Pane maxWidth="1070.0" minWidth="1070.0" prefHeight="40.0" prefWidth="1070.0" styleClass="second-bevel-grey" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label layoutX="347.0" prefHeight="40.0" prefWidth="311.0" text="Gestion des notes">
+               <font>
+                  <Font name="Berlin Sans FB" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="42.0" minWidth="1070.0" prefHeight="550.0" prefWidth="1070.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+         <children>
+            <StackPane fx:id="principal_view_stackpane" prefHeight="613.0" prefWidth="1070.0">
+               <children>
+                  <StackPane fx:id="sheetStackpane" visible="false">
+                     <children>
+                        <Pane fx:id="sheetList_Pane" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox fx:id="semester_view_vbox" layoutX="789.0" prefHeight="79.0" prefWidth="281.0" spacing="5.0" style="-fx-background-color: linear-gradient(#BDC4D5 50%, white 100%);">
+                                 <children>
+                                    <ChoiceBox fx:id="semester_list_choiceBox" prefHeight="32.0" prefWidth="293.0" styleClass="datePickerStyle" />
+                                    <HBox prefHeight="40.0" prefWidth="253.0" spacing="5.0">
+                                       <children>
+                                          <DatePicker fx:id="semester_begining_dateOicker" prefHeight="40.0" prefWidth="125.0" styleClass="datePickerStyle" />
+                                          <Label layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="30.0" text="Au">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <DatePicker fx:id="semester_end_dateOicker" layoutX="31.0" layoutY="10.0" prefHeight="40.0" prefWidth="129.0" styleClass="datePickerStyle" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <TableView fx:id="sheetList_tableView" layoutX="145.0" layoutY="174.0" prefHeight="333.0" prefWidth="818.0" style="-fx-border-radius: 100;" styleClass="table-row-cell" tableMenuButtonVisible="true">
+                                 <columns>
+                                    <TableColumn fx:id="sheetList_id_column" prefWidth="44.000030517578125" text="N°" />
+                                    <TableColumn fx:id="sheetList_subjectName_column" prefWidth="147.3333282470703" text="Matière" />
+                                    <TableColumn fx:id="sheetList_ue_column" prefWidth="189.99996948242188" text="UE" />
+                                    <TableColumn fx:id="sheetList_semester_column" prefWidth="113.3333740234375" text="Semestre" />
+                                    <TableColumn fx:id="sheetList_loan_column" prefWidth="96.6666259765625" text="Crédit" />
+                                    <TableColumn fx:id="sheetList_session_column" prefWidth="92.0" text="Session" />
+                                    <TableColumn fx:id="sheetList_code_column" prefWidth="118.0" text="ID" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <HBox layoutX="592.0" layoutY="124.0" prefHeight="44.0" prefWidth="395.0" spacing="5.0">
+                                 <children>
+                                    <HBox prefHeight="43.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                       <children>
+                                          <Pane prefHeight="42.0" prefWidth="40.0" style="-fx-background-radius: 100;">
+                                             <children>
+                                                <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="6.0" layoutY="4.0" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../rechercher.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </Pane>
+                                          <TextField fx:id="search_with_name_field" prefHeight="42.0" prefWidth="193.0" promptText="Entrez le nom de la matière" style="-fx-background-radius: 20; -fx-border-color: WHITE; -fx-background-color: WHITE;">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <Button mnemonicParsing="false" onAction="#search_with_name" prefHeight="42.0" prefWidth="107.0" styleClass="record-sales" text="Rechercher">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <ChoiceBox fx:id="search_mode_choiceBox" layoutX="432.0" layoutY="134.0" prefWidth="150.0" style="-fx-background-radius: 20;" />
+                              <StackPane prefHeight="42.0" prefWidth="60.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#return_to_menu" opacity="0.43" prefHeight="26.0" prefWidth="66.0" style="-fx-background-radius: 60;">
+                                       <cursor>
+                                          <Cursor fx:constant="CLOSED_HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" opacity="0.88">
+                                             <image>
+                                                <Image url="@../bouton-retour.png" />
+                                             </image>
+                                             <effect>
+                                                <Glow />
+                                             </effect>
+                                             <cursor>
+                                                <Cursor fx:constant="CLOSED_HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </StackPane>
+                              <HBox layoutX="300.0" layoutY="521.0" prefHeight="58.0" prefWidth="508.0" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="add_new_sheet_button" mnemonicParsing="false" onAction="#add_new_sheet" prefHeight="49.0" prefWidth="172.0" text="Ajouter une nouvelle fiche" wrapText="true">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="16.0" />
+                                       </font>
+                                    </Button>
+                                    <HBox fx:id="modification_hbox" prefHeight="40.0" prefWidth="293.0" spacing="10.0">
+                                       <children>
+                                          <Button fx:id="see_current_sheet_button" mnemonicParsing="false" onAction="#see_current_sheet" prefHeight="49.0" prefWidth="137.0" text="Voir la fiche">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="16.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="remove_current_sheet_button" mnemonicParsing="false" onAction="#remove_current_sheet" prefHeight="49.0" prefWidth="141.0" text="Supprimer">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="16.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="sheet_form_Pane" prefHeight="200.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <HBox layoutX="809.0" layoutY="14.0" prefHeight="25.0" prefWidth="247.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="131.0" text="Année scolaire :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="10.0" onDragDetected="#shcool_year_label" prefHeight="25.0" prefWidth="101.0" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="14.0" layoutY="39.0" prefHeight="25.0" prefWidth="612.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="84.0" text="Matière  :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="sheet_subject_name" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="363.0" text="Modélisation des phénomèmes aléatoires" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="14.0" layoutY="72.0" prefHeight="25.0" prefWidth="612.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="83.0" text="UE          :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="sheet_subject_ue_name" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="351.0" text="Modélisation des phénomèmes aléatoires" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="sheet_tableView" layoutX="136.0" layoutY="136.0" prefHeight="388.0" prefWidth="799.0" tableMenuButtonVisible="true">
+                                <columns>
+                                  <TableColumn fx:id="sheet_n_column" prefWidth="36.666656494140625" text="N°" />
+                                  <TableColumn fx:id="sheet_matricule_column" prefWidth="146.0000228881836" text="Matricule" />
+                                    <TableColumn fx:id="sheet_lastName_column" prefWidth="161.99998474121094" text="Nom" />
+                                    <TableColumn fx:id="sheet_firstName_name" prefWidth="185.33334350585938" text="Prénom" />
+                                    <TableColumn fx:id="sheet_minimalNote_column" prefWidth="131.33331298828125" text="Note 1" />
+                                    <TableColumn fx:id="sheet_mean_column" prefWidth="131.33331298828125" text="Moyenne" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <StackPane prefHeight="40.0" prefWidth="40.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#return_to_sheet_list" opacity="0.43" prefHeight="58.0" prefWidth="47.0" style="-fx-background-radius: 60;">
+                                       <cursor>
+                                          <Cursor fx:constant="CLOSED_HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <ImageView fitHeight="25.0" fitWidth="28.0" opacity="0.88">
+                                       <image>
+                                          <Image url="@../bouton-retour.png" />
+                                       </image>
+                                       <effect>
+                                          <Glow />
+                                       </effect>
+                                       <cursor>
+                                          <Cursor fx:constant="CLOSED_HAND" />
+                                       </cursor>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <HBox layoutX="14.0" layoutY="104.0" prefHeight="25.0" prefWidth="612.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="83.0" text="Session   :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="sheet_session" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="351.0" text="Normale" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="261.0" layoutY="532.0" prefHeight="50.0" prefWidth="649.0" spacing="10.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#add_new_note_to_this_sheet" opacity="0.9" prefHeight="53.0" prefWidth="167.0" text="Ajouter une nouvelle note" wrapText="true">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="16.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="remove_button" mnemonicParsing="false" onAction="#remove_a_note_to_this_sheet" opacity="0.9" prefHeight="49.0" prefWidth="141.0" text="Supprimer une note" wrapText="true">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="16.0" />
+                                       </font>
+                                    </Button>
+                                    <HBox />
+                                    <Button fx:id="remove_button1" layoutX="187.0" layoutY="10.0" mnemonicParsing="false" onAction="#save_sheet" opacity="0.9" prefHeight="49.0" prefWidth="141.0" text="Enrégistrer les modifications" wrapText="true">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="16.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="remove_button11" layoutX="349.0" layoutY="10.0" mnemonicParsing="false" onAction="#edict_this_sheet_head" opacity="0.9" prefHeight="49.0" prefWidth="141.0" text="Modifier l'entête " wrapText="true">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="16.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </StackPane>
+                  <Pane fx:id="menu_pane" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="menu_vbox" layoutX="306.0" layoutY="93.0" prefHeight="427.0" prefWidth="458.0" spacing="50.0">
+                           <children>
+                              <HBox prefHeight="169.0" prefWidth="459.0" spacing="50.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#openSheetPane" prefHeight="167.0" prefWidth="200.0" styleClass="button1" text="Fiches de notes" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="27.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openSchoolReportPane" prefHeight="167.0" prefWidth="200.0" styleClass="button1" text="Consultation de bulletins" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="27.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" prefHeight="169.0" prefWidth="459.0" spacing="50.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#openBilanPane" prefHeight="167.0" prefWidth="200.0" styleClass="button1" text="Bilan de d'année" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="27.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openPrintPane" prefHeight="167.0" prefWidth="200.0" styleClass="button1" text="Menu d'impression" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="27.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="bilanPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <TableView fx:id="bilan_tableView" layoutX="10.0" layoutY="52.0" prefHeight="553.0" prefWidth="1054.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="n_bilan_column" prefWidth="62.00000286102295" text="N°" />
+                            <TableColumn fx:id="id_bilan_column" prefWidth="296.00000762939453" text="Matricule" />
+                              <TableColumn fx:id="lastName_bilan_column" prefWidth="156.66664123535156" text="Nom" />
+                              <TableColumn fx:id="firstName_bilan_column" prefWidth="186.66665649414062" text="Prénom" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <StackPane fx:id="return_to_menu" prefHeight="50.0" prefWidth="40.0">
+                           <children>
+                              <Button mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#return_to_menu" opacity="0.43" prefHeight="39.0" prefWidth="40.0" style="-fx-background-radius: 60;">
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
+                              </Button>
+                              <ImageView fitHeight="25.0" fitWidth="28.0" opacity="0.88">
+                                 <image>
+                                    <Image url="@../bouton-retour.png" />
+                                 </image>
+                                 <effect>
+                                    <Glow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </Pane>
+                  <StackPane fx:id="studentReport_stackPane" prefHeight="150.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <BorderPane fx:id="studentReport_BorderPane" prefHeight="200.0" prefWidth="200.0">
+                           <top>
+                              <HBox prefHeight="78.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <StackPane prefHeight="64.0" prefWidth="40.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#return_to_menu" opacity="0.43" prefHeight="39.0" prefWidth="40.0" style="-fx-background-radius: 60;">
+                                             <cursor>
+                                                <Cursor fx:constant="CLOSED_HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <ImageView fitHeight="25.0" fitWidth="28.0" opacity="0.88">
+                                             <image>
+                                                <Image url="@../bouton-retour.png" />
+                                             </image>
+                                             <effect>
+                                                <Glow />
+                                             </effect>
+                                             <cursor>
+                                                <Cursor fx:constant="CLOSED_HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" lineSpacing="3.0" prefHeight="77.0" prefWidth="623.0" text="Portail des bulletins" textAlignment="JUSTIFY" textFill="#d2abab" textOverrun="CLIP">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="studentReport_student_choiceBox" prefHeight="32.0" prefWidth="170.0" styleClass="choiceButtonStyle">
+                                       <HBox.margin>
+                                          <Insets top="25.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                    <ChoiceBox fx:id="studentReport_semester_choiceBox" layoutX="673.0" layoutY="35.0" prefHeight="32.0" prefWidth="170.0" styleClass="choiceButtonStyle">
+                                       <HBox.margin>
+                                          <Insets left="40.0" top="25.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                 </children>
+                              </HBox>
+                           </top>
+                           <center>
+                              <Pane prefHeight="529.0" prefWidth="1055.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="508.0" prefWidth="768.0" style="-fx-background-color: WHITE; -fx-background-radius: 20;">
+                                       <children>
+                                          <Label fx:id="studentReport_studentName" layoutX="72.0" layoutY="22.0" prefHeight="25.0" prefWidth="275.0" text="Nom " textFill="#1c6074">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <TableView layoutX="14.0" layoutY="60.0" prefHeight="388.0" prefWidth="745.0">
+                                            <columns>
+                                              <TableColumn fx:id="studentReport_subdject_column" prefWidth="203.9999942779541" text="Matière" />
+                                              <TableColumn fx:id="studentReport_ue_column" prefWidth="206.6667022705078" text="UE" />
+                                                <TableColumn fx:id="studentReport_loan_column" prefWidth="94.00003051757812" text="Crédit" />
+                                                <TableColumn fx:id="studentReport_task1_column" prefWidth="116.66668701171875" text="Devoir n°1" />
+                                                <TableColumn fx:id="studentReport_exam1_column" prefWidth="119.33331298828125" text="Examen n°1" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="794.0" layoutY="59.0" prefHeight="200.0" prefWidth="239.0" styleClass="average-pane">
+                                       <children>
+                                          <Label layoutX="14.0" prefHeight="40.0" prefWidth="207.0" text="Moyenne générale :" textFill="#7013d6">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="studentReport_student_mean" layoutX="29.0" layoutY="37.0" prefHeight="40.0" prefWidth="186.0" text="19.O4">
+                                             <font>
+                                                <Font name="Bodoni MT Black" size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="14.0" layoutY="94.0" prefHeight="49.0" prefWidth="73.0" text="Rang :" textFill="#7013d6">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="studentReport_student_rang" layoutX="104.0" layoutY="94.0" prefHeight="49.0" prefWidth="66.0" text="1er">
+                                             <font>
+                                                <Font name="Bodoni MT Black" size="26.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="796.0" layoutY="337.0" prefHeight="155.0" prefWidth="258.0" styleClass="average-pane">
+                                       <children>
+                                          <Label fx:id="studentReport_student_credit" layoutX="127.0" layoutY="1.0" prefHeight="25.0" prefWidth="28.0" text="5" textFill="#a66900">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="21.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="studentReport_student_credit_total" layoutX="130.0" layoutY="58.0" prefHeight="25.0" prefWidth="28.0" text="5" textFill="#860000">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="21.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="43.0" layoutY="26.0" text="Crédit(s) validés sur ">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="21.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="36.0" layoutY="90.0" prefHeight="25.0" prefWidth="54.0" text="Soit ">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="21.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="studentReport_student_percent" layoutX="90.0" layoutY="90.0" prefHeight="25.0" prefWidth="47.0" text="100" textFill="#860000">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="21.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="129.0" layoutY="90.0" prefHeight="25.0" prefWidth="40.0" text="\%" textFill="#860000">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="21.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </Pane>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </StackPane>
+               </children>
+            </StackPane>
+         </children>
+         <stylesheets>
+            <URL value="@../head.css" />
+            <URL value="@../styles.css" />
+         </stylesheets>
+      </Pane>
+   </children>
+</AnchorPane>

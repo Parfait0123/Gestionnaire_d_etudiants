@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="497.0" styleClass="formStudentStyle" stylesheets="@../head.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentManagement.InterfacesControllers.student.EdictStudentFormController">
+   <children>
+      <ImageView fx:id="studentphoto_imageView" fitHeight="184.0" fitWidth="200.0">
+         <image>
+            <Image url="@student_image.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="186.0" layoutY="1.0" prefHeight="184.0" prefWidth="308.0" spacing="5.0" style="-fx-border-radius: 6;">
+         <children>
+            <HBox prefHeight="49.0" prefWidth="308.0">
+               <children>
+                  <Label prefHeight="49.0" prefWidth="77.0" text="Matricule :">
+                     <font>
+                        <Font name="Berlin Sans FB" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="matricule_field" prefHeight="45.0" prefWidth="236.0" style="-fx-border-color: black; -fx-background-color: #BDC4D5; -fx-border-radius: 10; -fx-background-radius: 10;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="308.0">
+               <children>
+                  <Label prefHeight="49.0" prefWidth="77.0" text="Nom :">
+                     <font>
+                        <Font name="Berlin Sans FB" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="lastname_field" prefHeight="45.0" prefWidth="236.0" style="-fx-border-color: black; -fx-background-color: #BDC4D5; -fx-border-radius: 10;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="59.0" prefHeight="49.0" prefWidth="308.0">
+               <children>
+                  <Label prefHeight="49.0" prefWidth="77.0" text="Prénom(s) :">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="fistname_field" prefHeight="45.0" prefWidth="236.0" style="-fx-border-color: black; -fx-background-color: #BDC4D5; -fx-border-radius: 10;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="109.0" prefHeight="49.0" prefWidth="308.0">
+               <children>
+                  <Label prefHeight="49.0" prefWidth="77.0" text="Sex :">
+                     <font>
+                        <Font name="Berlin Sans FB" size="17.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="masculine_radioButton" mnemonicParsing="false" prefHeight="41.0" prefWidth="87.0" text="M">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="feminine_radioButton" layoutX="87.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="45.0" text="F">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="confirm_button" layoutX="335.0" layoutY="491.0" mnemonicParsing="false" onAction="#confirm" prefHeight="40.0" prefWidth="128.0" styleClass="record-sales" text="Ajouter" />
+      <StackPane layoutX="44.0" layoutY="203.0" prefHeight="286.0" prefWidth="398.0">
+         <children>
+            <VBox fx:id="firstPage_vbox" prefHeight="279.0" prefWidth="395.0" spacing="5.0" style="-fx-border-color: blue; -fx-border-radius: 10;">
+               <children>
+                  <HBox prefHeight="40.0" prefWidth="414.0">
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="159.0" text="Date de naissance :">
+                           <font>
+                              <Font name="Berlin Sans FB" size="17.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="birthday_datepicker" prefHeight="37.0" prefWidth="110.0" promptText="2000-08-04" style="-fx-border-color: BLACK;" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="48.0" prefWidth="393.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="218.0" text="Lieu de naissance :">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="location_born_field" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: linear-gradient(#BDC4D5 50%, #F0ADFF 100%); -fx-border-color: BLACK; -fx-border-radius: 10;">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="11.0" layoutY="51.0" prefHeight="46.0" prefWidth="393.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="211.0" text="Nationalité :">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nationality_field" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: linear-gradient(#BDC4D5 10%, #F0ADFF 90%); -fx-border-color: BLACK; -fx-border-radius: 10;">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="11.0" layoutY="91.0" prefHeight="40.0" prefWidth="262.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="211.0" text="Numéro de téléphone :">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="phoneNumber_field" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: linear-gradient(#BDC4D5 8%, #F0ADFF 92%); -fx-border-color: BLACK; -fx-border-radius: 10;">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="11.0" layoutY="131.0" prefHeight="53.0" prefWidth="393.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="211.0" text="Adresse email :">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="email_field" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: linear-gradient(#BDC4D5 8%, #F0ADFF 92%); -fx-border-color: BLACK; -fx-border-radius: 10;">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="47.0" prefWidth="393.0">
+                     <children>
+                        <Label prefHeight="43.0" prefWidth="313.0" />
+                        <Button fx:id="nextPage_button" mnemonicParsing="false" onAction="#nextPage" prefHeight="31.0" prefWidth="81.0" styleClass="record_clone" text="Suivant" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="secondpage_vbox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: BLUE; -fx-border-radius: 10;" visible="false">
+               <children>
+                  <HBox prefHeight="46.0" prefWidth="398.0">
+                     <children>
+                        <Label prefHeight="43.0" prefWidth="135.0" text="NPI :">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="npi_field" prefHeight="37.0" prefWidth="262.0" style="-fx-background-color: #BDC4D5; -fx-border-color: BLACK; -fx-border-radius: 10;">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="11.0" layoutY="11.0" prefHeight="46.0" prefWidth="398.0">
+                     <children>
+                        <Label prefHeight="43.0" prefWidth="169.0" text="Dernière moyenne :">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="lastAverage_field" prefHeight="40.0" prefWidth="295.0" style="-fx-background-color: #BDC4D5; -fx-border-color: BLACK; -fx-border-radius: 10;">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label prefHeight="35.0" prefWidth="394.0" text="                                   Autres informations">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="othersinformations_textArea" prefHeight="127.0" prefWidth="395.0">
+                           <font>
+                              <Font name="Berlin Sans FB" size="17.0" />
+                           </font>
+                        </TextArea>
+                        <Button fx:id="previousPage_button" mnemonicParsing="false" onAction="#previousPage" prefHeight="35.0" prefWidth="89.0" styleClass="record_clone" text="Retour" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+      <CheckBox fx:id="confirm_checkbox" layoutX="89.0" layoutY="503.0" mnemonicParsing="false" text="Je suis d'accord avec les modifications">
+         <font>
+            <Font name="Berlin Sans FB" size="13.0" />
+         </font>
+      </CheckBox>
+      <Button layoutX="18.0" layoutY="500.0" mnemonicParsing="false" onAction="#close" text="Retour" />
+   </children>
+</Pane>
